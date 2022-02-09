@@ -1,0 +1,68 @@
+{  
+  "head": {
+    "mainTitle": "Кошт",
+    "indexTitle": "Розповідаємо про особисті фінанси",
+    "indexDescription": "Останні новини про економіку та фінанси",
+    "indexKeywords": "Економіка, валюти, ВВП, банкінг, фінанси",
+    "postsByCategory": "Усі пости за категорією:",
+    "postsByCategoryDesc": "Список статей за категорією:",
+    "postsByTag": "Усі пости за тегом:",
+    "postsByTagDesc": "Список постів за тегом:",
+    "searchByQuery": "Пошук по запиту:",
+    "search": "пошук"
+  },
+  "header": {
+    "brandPhrase": "Розповідаємо про особисті фінанси",
+    "brandBtn": "Кошт",
+    "searchBtn": "Знайти",
+    "searchPlaceholder": "Пошук"
+  },
+  "leftMenu": {
+    "followUs": "Слідкуйте за нами",
+    "subscribeHeader": "Введіть email",
+    "subscribePlaceholder": "Ваш email",
+    "subscribeLink": "Підписатися",
+    "subscribeAlert": "Вітаємо! Ви підписалися на щотижневу розсилку наших статей!",
+    "about": "Про проект"
+  },
+  "separateList": {
+    "accordionExpand": "розгорнути",
+    "accordionCollapse": "згорнути",
+    "accordionShowMore": "Показати ще",
+    "titleReadMore": "Читайте ще",
+    "titleNewsWeek": "Головне",
+    "titleNews": "Новини",
+    "titleAllNews": "Всі новини",
+    "titleEditorChoice": "Вибір редакції",
+    "currencyEuro": "Євро",
+    "currencyUSD": "Долар",
+    "currencyBank": "Банк",
+    "currencyBuy": "Купівля",
+    "currencySelling": "Продаж",
+    "allCurrenciesLink": "Всі банки і валюти"
+  },
+  "currenciesPage": {
+    "titleCurrenciesToday": "Курс валют на сьогодні",
+    "pageTitle": "Курс валют на сьогодні",
+    "searchInput": "Пошук за назвою банку",
+    "atPayDesk": "У касах банків",
+    "atCard": "При оплаті карткою",
+    "atOnline": "При оплаті онлайн",
+    "currencyBuy": "Купівля",
+    "currencySelling": "Продаж",
+    "currenciesList": "Євро, Долар, Рубль, Фунт, Швейц.франк, Злотий, Крона",
+    "currenciesDesc": "Курси іноземних валют до гривні на сьогодні. Курс валют при купівлі  онлайн, купівлі при оплаті карткою, купівлі в касах банків"
+  },
+  "loading": {
+    "loadingStatus": "Завантаження..."
+  },
+  "search": {
+    "searchQuery": "Пошук по:",
+    "searchMessage": "Пошук не дав результатів"
+  },
+  "postList": {
+    "noPosts": "Ще не створено постів!"
+  },
+  "postDetail": {
+  }
+}
