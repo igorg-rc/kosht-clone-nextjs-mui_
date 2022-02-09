@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 import axios from 'axios';
 import Link from '../src/Link';
 import { useRouter } from 'next/router';
-import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
+// import { PostSeparateListIndex } from "../components/PostList/PostSeparateListIndex"
 import useSWR from 'swr';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -95,14 +95,14 @@ const Index = ({posts, mainNews}) => {
 
   return (
     <>
-    <PostSeparateListIndex
+    {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? mainNews.posts.slice(0, 5) : mainNews.posts.slice(0, mainNews.length)}
       showMore={showMore}
       expanded={expanded}
       toggleExpanded={() => setExpanded(!expanded)}
       toggleShowMore={() => setShowMore(!showMore)} 
-    />
+    /> */}
 
     {posts ? posts.data.map(i => <Item style={{ border: '1px sold #000' }} key={i._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
@@ -154,6 +154,6 @@ export async function getServerSideProps({ locale }) {
   const mainNews = fetchedMainNews.data
 
   return {
-    props: {posts, mainNews, ...await serverSideTranslations(locale, ['common']) } 
+    props: {posts, ...await serverSideTranslations(locale, ['common']) } 
   }
 }
