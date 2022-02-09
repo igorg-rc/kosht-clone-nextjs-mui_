@@ -5,7 +5,7 @@ import moment from "moment"
 
 const rightMenuListStyles = makeStyles(theme => ({
   main: {
-    background: '#FFFFFF',
+    // background: '#FFFFFF',
     boxShadow: '0px 8px 25px rgba(83, 89, 144, 0.07)',
     borderRadius: 5,
   },
@@ -55,12 +55,11 @@ export const RightMenuPostList = ({items, label}) => {
   const styles = rightMenuListStyles()
 
   return <Item>
-    <div className={styles.main}>
+    <div style={{ padding: "20px 0" }}>
       <div>
         <span className={styles.unicodeRound}>&#11044;</span>
         <span className={styles.label}>{label}</span> 
       </div>
-    </div>
     {items ? items.map(item => (
       <div key={item._id} className={`${styles.content} content-row`}>
         <div className={`${styles.contentRow} content-row`}>
@@ -75,5 +74,6 @@ export const RightMenuPostList = ({items, label}) => {
         </div>
       </div>
     )) : null}
+    </div>
   </Item>
 }

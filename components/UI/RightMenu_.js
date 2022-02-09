@@ -93,6 +93,26 @@ const useStyles = makeStyles(theme => ({
   tableRowText: {
     fontSize: 11,
     margin: '5px 0'
+  },
+  linkHolder: {
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    fontFamily: 'Gilroy, sans-serif',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    fontSize: 14,
+    lineHeight: '150%',
+    '&:hover': {
+      cursor: 'pointer'
+    }
+  },
+  linkLine: {
+    borderBottom: '2px',
+    borderBottomStyle: 'solid',
+    borderBottomWidth: '2px',
+    borderBottomLeftRadius: '2px',
+    borderBottomRightRadius: '2px',
+    
   }
 }))
 
@@ -161,7 +181,7 @@ export const RightMenu = props => {
   const {data: news, error: newsError} = useSWR(ALL_POSTS_URL, fetcher)
   const {data: editorChoice, error: editorChoiceError} = useSWR(EDITOR_CHOICE_URL, fetcher)
 
-  const currenciesList = <div id="euro-tab-table_general">
+  const currenciesList = <div id="euro-tab-table_general" style={{ padding: "20px 0" }}>
   <>
     <StyledTabs value={tab} onChange={handleChange} aria-label="basic tabs example">
       <StyledTab label={t("separateList.currencyEuro")} />
@@ -251,6 +271,11 @@ export const RightMenu = props => {
       </TableBody>
     </Table>
   </TabPanel>
+    <div 
+      className={styles.linkHolder}
+      onClick={() => router.replace('/currencies')}
+    ><span className={styles.linkLine}>{t("separateList.allCurrenciesLink")}</span>
+    </div>
 </div> 
 
 
