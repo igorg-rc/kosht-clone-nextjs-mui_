@@ -14,6 +14,7 @@ import { useState } from 'react';
 import moment from 'moment'
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
+import Head from 'next/head';
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -95,6 +96,11 @@ const Index = ({posts, mainNews}) => {
 
   return (
     <>
+    <Head>
+      <title>{t("head.mainTitle")} | {t("head.indexTitle")}</title>
+      <meta name="description" content={t("head.indexDescription")} />
+      <meta name="keywords" content={t("head.indexKeywords")} />
+    </Head>
     {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? mainNews.posts.slice(0, 5) : mainNews.posts.slice(0, mainNews.length)}

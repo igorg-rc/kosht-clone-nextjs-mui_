@@ -10,6 +10,7 @@ import moment from 'moment'
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
 import { useTranslation } from "next-i18next";
+import Head from "next/head";
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -73,6 +74,10 @@ export default function Query({query, posts}) {
   const { t } = useTranslation("common")
 
   return <>
+  <Head>
+    <title>{`${t("head.searchByQuery")} ${query}`}</title>
+    <meta name="description" content={posts?.map(i => i.title)} />
+  </Head>
   { (posts && posts.length > 0) 
   ?
   <> 

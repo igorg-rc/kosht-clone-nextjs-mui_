@@ -8,8 +8,10 @@ import { useRouter } from "next/router"
 import moment from 'moment'
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
+import Head from 'next/head'
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { PostGeneralView } from "../../components/Post/Post"
+import { useTranslation } from "next-i18next"
 
 // const API_LINK = "http://193.46.199.82:5000/api/"
 const API_LINK = "https://kosht-api.herokuapp.com/api"
@@ -71,12 +73,18 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function PostsByTags({slug, posts}) {
+export default function PostsByTags({tag, posts}) {
   const theme = useTheme()
   const styles = useStyles()
   const router = useRouter()
+  const { t } = useTranslation("common")
 
   return <>
+    <Head>
+      <title>{`${t("head.mainTitle")} | ${t("head.postsByTagDesc")}
+       "${router.locale === "uk" ? tag.title_ua : tag.title_en}"`}</title>
+      <meta name="description" content={posts?.map(i => i.title)} />
+    </Head>
     {posts?.map(i => <Item style={{ border: '1px sold #000' }} key={i._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
       <Typography paragraph className={styles.topBage}>
@@ -137,10 +145,12 @@ export async function getStaticProps(context) {
   const slug = context.params.slug
   const postsList = await axios.get(`${API_LINK}/posts/tags/${context.params.slug}`)
   const posts = postsList.data
+  const tagRes = await axios.get(`https://kosht-api.herokuapp.com/api/tags/slug/${slug}`)
+  const tag = tagRes.data[0]
 
   return {
     props: { 
-      slug,
+      tag,
       posts, 
     ...await serverSideTranslations(context.locale, ["common"]) 
     }

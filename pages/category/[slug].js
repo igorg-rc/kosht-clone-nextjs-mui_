@@ -9,6 +9,9 @@ import Image from "next/image";
 import moment from 'moment'
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
+import Head from "next/head";
+import { t } from "i18next";
+import { useTranslation } from "next-i18next";
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -69,11 +72,17 @@ const useStyles = makeStyles(theme => ({
 const API_LINK = "https://kosht-api.herokuapp.com/api"
 // const API_LINK = "http://193.46.199.82:5000/api/"
 
-export default function PostsByCategories({slug, posts}) {
+export default function PostsByCategories({category, posts}) {
   const theme = useTheme()
   const styles = useStyles()
   const router = useRouter()
-  return (
+  const { t } = useTranslation()
+  return <>
+    <Head>
+      <title>{`${t("head.mainTitle")} | ${t("head.postsByCategoryDesc")}
+       "${router.locale === "uk" ? category.title_ua : category.title_en}"`}</title>
+      <meta name="description" content={posts?.map(i => i.title)} />
+    </Head>
     <div>
     {posts?.map(i => <Item style={{ border: '1px sold #000' }} key={i._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
@@ -112,7 +121,7 @@ export default function PostsByCategories({slug, posts}) {
       </div>
     </Item>)} 
     </div>
-  )
+  </>
 }
 
 export async function getStaticPaths({locales})  {
@@ -133,11 +142,13 @@ export async function getStaticPaths({locales})  {
 export async function getStaticProps(context) {
   const slug = context.params.slug
   const postsList = await axios.get(`${API_LINK}/posts/categories/${slug}`)
+  const categoryRes = await axios.get(`https://kosht-api.herokuapp.com/api/categories/slug/${slug}`)
   const posts = postsList.data
+  const category = categoryRes.data
 
   return {
     props: { 
-      slug,
+      category,
       posts, 
       ...await serverSideTranslations(context.locale, ["common"]) 
     }
