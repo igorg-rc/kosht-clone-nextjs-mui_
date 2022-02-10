@@ -154,9 +154,10 @@ const Index = ({posts, mainNews}) => {
 export default Index
 
 export async function getServerSideProps({ locale }) {
-  const fetchedPosts = await axios.get('https://kosht-api.herokuapp.com/api/posts')  
+  const BASE_API_PATH = "http://193.46.199.82:5000/api"
+  const fetchedPosts = await axios.get(`${BASE_API_PATH}/posts`)  
   const posts = fetchedPosts.data
-  const fetchedMainNews = await axios.get('https://kosht-api.herokuapp.com/api/lists/slug/main-news')
+  const fetchedMainNews = await axios.get(`${BASE_API_PATH}/lists/slug/main-news`)
   const mainNews = fetchedMainNews.data
 
   return {

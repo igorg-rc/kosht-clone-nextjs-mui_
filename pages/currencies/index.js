@@ -511,8 +511,6 @@ export default function CurrencyFull() {
     </div>
   </> 
   : <SpinnerContent loadingStatus={loading} />
-  
-  
 }
 
 

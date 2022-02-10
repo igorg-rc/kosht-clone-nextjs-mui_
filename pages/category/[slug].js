@@ -69,8 +69,8 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const API_LINK = "https://kosht-api.herokuapp.com/api"
-// const API_LINK = "http://193.46.199.82:5000/api/"
+// const API_LINK = "https://kosht-api.herokuapp.com/api"
+const API_LINK = "http://193.46.199.82:5000/api"
 
 export default function PostsByCategories({category, posts}) {
   const theme = useTheme()
@@ -142,7 +142,7 @@ export async function getStaticPaths({locales})  {
 export async function getStaticProps(context) {
   const slug = context.params.slug
   const postsList = await axios.get(`${API_LINK}/posts/categories/${slug}`)
-  const categoryRes = await axios.get(`https://kosht-api.herokuapp.com/api/categories/slug/${slug}`)
+  const categoryRes = await axios.get(`${API_LINK}/categories/slug/${slug}`)
   const posts = postsList.data
   const category = categoryRes.data
 

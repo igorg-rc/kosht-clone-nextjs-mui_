@@ -219,75 +219,75 @@ export const Header = () => {
               </Button>
             </Grid>
             <Grid item xs={9} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <SectionTitle title={t('header.brandPhrase')} />
-                  <div className={styles.search}>
-                    <form onSubmit={handleSearch}>
-                    <TextField 
-                      fullWidth
-                      variant="outlined"
-                      placeholder={t('header.searchPlaceholder')}
-                      inputProps={{ 
-                        style: { 
-                          margin: '0 2px', 
-                          color: 'red',
-                          fontSize: 12, 
-                          padding: '10px 0', 
-                          width: '300px', 
-                          fontFamily: 'Gilroy',
-                          fontWeight: 400, 
-                          lineHeight: '1.5px', 
-                          color: '#000000',
-                          borderRadius: '8px', 
-                          backgroundColor: '#FFFFFF',
-                          '&::placeholder': {
-                            color: '#B3B3B3'
-                          }
-                        } 
-                      }}
-                      onChange={e => onSearchChange(e.target.value)}
-                      value={query}
-                      ref={searchInputRef}
-                      InputProps={{
-                        className: styles.searchInput,
-                        classes: { 
-                          notchedOutline:styles.noBorder
-                        },
-                        startAdornment: (
-                          <InputAdornment style={{ margin: '0 5px 0 10px', padding: 0 }} position="start">
-                            <Image src={searchIcon} className={styles.searchIcon} />
-                          </InputAdornment>
-                        ),
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Button 
-                              type="submit"
-                              id="search-menu-button" 
-                              variant="contained" 
-                              color="secondary" 
-                              style={{
-                                width: 60,
-                                borderRadius: 8,
-                                textTransform: 'none',
-                                fontSize: 12,
-                                padding: '6px 20px',
-                                fontFamily: 'Gilroy, sans-serif',
-                                fontWeight: 'bold',
-                                // marginRight: -12,
-                                '&:hover': {
-                                  color: 'yellow'
-                                }
-                              }}
-                              className={styles.searchBtn}
-                              
-                              disableElevation
-                              >{t('header.searchBtn')}
-                            </Button>
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    </form>
-                  </div>
+              <SectionTitle title={t('header.brandPhrase')} />
+              <div className={styles.search}>
+                <form onSubmit={handleSearch}>
+                <TextField 
+                  fullWidth
+                  variant="outlined"
+                  placeholder={t('header.searchPlaceholder')}
+                  inputProps={{ 
+                    style: { 
+                      margin: '0 2px', 
+                      color: 'red',
+                      fontSize: 12, 
+                      padding: '10px 0', 
+                      width: '300px', 
+                      fontFamily: 'Gilroy',
+                      fontWeight: 400, 
+                      lineHeight: '1.5px', 
+                      color: '#000000',
+                      borderRadius: '8px', 
+                      backgroundColor: '#FFFFFF',
+                      '&::placeholder': {
+                        color: '#B3B3B3'
+                      }
+                    } 
+                  }}
+                  onChange={e => onSearchChange(e.target.value)}
+                  value={query}
+                  ref={searchInputRef}
+                  InputProps={{
+                    className: styles.searchInput,
+                    classes: { 
+                      notchedOutline:styles.noBorder
+                    },
+                    startAdornment: (
+                      <InputAdornment style={{ margin: '0 5px 0 10px', padding: 0 }} position="start">
+                        <Image src={searchIcon} className={styles.searchIcon} />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Button 
+                          type="submit"
+                          id="search-menu-button" 
+                          variant="contained" 
+                          color="secondary" 
+                          style={{
+                            width: 60,
+                            borderRadius: 8,
+                            textTransform: 'none',
+                            fontSize: 12,
+                            padding: '6px 20px',
+                            fontFamily: 'Gilroy, sans-serif',
+                            fontWeight: 'bold',
+                            // marginRight: -12,
+                            '&:hover': {
+                              color: 'yellow'
+                            }
+                          }}
+                          className={styles.searchBtn}
+                          
+                          disableElevation
+                          >{t('header.searchBtn')}
+                        </Button>
+                      </InputAdornment>
+                    )
+                  }}
+                />
+                </form>
+              </div>
             </Grid>
           </Grid>
         </Toolbar>

@@ -174,8 +174,9 @@ export const RightMenu = props => {
   const router = useRouter()
   const styles = useStyles()
   const { t } = useTranslation('common')
-  const EDITOR_CHOICE_URL = "https://kosht-api.herokuapp.com/api/lists/slug/editor-choice"
-  const ALL_POSTS_URL = "https://kosht-api.herokuapp.com/api/posts"
+  const BASE_API_PATH = "http://193.46.199.82:5000/api"
+  const EDITOR_CHOICE_URL = `${BASE_API_PATH}/lists/slug/editor-choice`
+  const ALL_POSTS_URL = `${BASE_API_PATH}/posts`
   const fetcher = url => axios.get(url).then(res => res.data).catch(err => console.log(err))
 
   const {data: news, error: newsError} = useSWR(ALL_POSTS_URL, fetcher)
