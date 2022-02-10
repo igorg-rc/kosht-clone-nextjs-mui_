@@ -12,7 +12,6 @@ const rightMenuListStyles = makeStyles(theme => ({
   row: {
     display: 'flex',
     justifyContent: 'space-between',
-    color: theme.palette.text.primary,
     alignItems: 'center'
   },
   contentRow: {
@@ -21,14 +20,13 @@ const rightMenuListStyles = makeStyles(theme => ({
     marginBottom: 10
   },
   unicodeRound: {
-    color: theme.palette.text.secondary,
+    color: '#5669FF',
     fontSize: 8,
     marginRight: 8,
     verticalAlign: 'middle'
   },
   label: {
     fontWeight: 'bold',
-    color: theme.palette.text.primary
   },
   dateBadge: {
     color: '#B8B8B8',

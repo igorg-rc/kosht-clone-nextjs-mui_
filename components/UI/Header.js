@@ -50,12 +50,11 @@ const useStyles = makeStyles(theme => ({
   },
   brandLink: {
     height: 30,
-    // width: 66,
     margin: 0,
     padding: '16px 0',
     fontWeight: 700,
     fontSize: 14,
-    fontFamily: 'Gilroy',
+    fontFamily: 'Gilroy, sans-serif',
     fontWeight: 800,
     borderRadius: 6,
     background: '#2E3A59',

@@ -1,12 +1,11 @@
 import axios from "axios"
 import { useTranslation } from "next-i18next"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import useSWR from "swr"
 import { Item } from "./UIUnits"
 import { makeStyles, styled } from "@mui/styles"
 import { Typography, Tabs, Tab, Table, TableHead, TableCell, TableBody, TableRow, Box } from "@mui/material"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { currenciesGeneralList } from "../../files/data/mocData"
 import { RightMenuPostList } from "../PostList/PostLists"
 
@@ -157,9 +156,9 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
       borderBottom: 'none',
       fontWeight: 600,
     },
-    '&.MuiTabs-indicator': {
-      color: 'red',
-    },
+    // '&.MuiTabs-indicator': {
+    //   color: 'red',
+    // },
     '&.Mui-focusVisible': {
       backgroundColor: 'rgba(100, 95, 228, 0.32)',
     },
