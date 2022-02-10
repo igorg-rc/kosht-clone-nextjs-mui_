@@ -175,7 +175,7 @@ export const LeftMenuList = (props) => {
         {items.map(i => (
           <ListItemText key={i._id} className={styles.listItem}>
             {(i.imgUrl) ? <span style={{ verticalAlign: "middle", marginRight: 5 }}>
-              <Image 
+              <img 
                 src={`http://193.46.199.82:5000/${i.imgUrl}`}
                 width="15px" 
                 height="15px" 
