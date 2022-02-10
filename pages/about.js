@@ -10,6 +10,7 @@ import axios from "axios";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Image from 'next/image';
 
 const About = ({users, posts, contacts}) => {
   const { t } = useTranslation("footer")
@@ -32,7 +33,7 @@ const About = ({users, posts, contacts}) => {
             <h3>{router.pathname.includes('en') ? item.title_en : item.title_ua}</h3>
             <a href={item.link} target="_blank">{item.link}</a>
             <div style={{ textAlign: 'center', marginTop: 20 }}>
-              <img 
+              <Image 
                 src={`http://193.46.199.82:5000/${item.imgUrl}`} 
                 height="20px" 
                 width="20px" 

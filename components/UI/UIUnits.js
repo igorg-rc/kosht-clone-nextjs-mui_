@@ -174,14 +174,13 @@ export const LeftMenuList = (props) => {
       <List style={{ padding: 0, margin: 0 }}>
         {items.map(i => (
           <ListItemText key={i._id} className={styles.listItem}>
-            {(i.imgUrl) ? <span style={{ verticalAlign: "middle", marginRight: 5 }}>
-              <img 
-                src={`http://193.46.199.82:5000/${i.imgUrl}`}
-                width="15px" 
-                height="15px" 
-                // style={{ verticalAlign: 'middle' }} 
-              /></span>  : 
-              <span className={styles.markerWrapper}>&#9679;</span>}
+            {(i.imgUrl) ? <Image 
+              src={`http://193.46.199.82:5000/${i.imgUrl}`}
+              width="15px" 
+              height="15px" 
+              style={{ verticalAlign: "middle", marginRight: 5 }} 
+            /> : 
+            <span className={styles.markerWrapper}>&#9679;</span>}
               
               
             <a href={i.link} target="_blank" className={styles.link}>
