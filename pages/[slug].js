@@ -17,7 +17,7 @@ import { useTranslation } from "next-i18next"
 
 // const API_LINK = "http://193.46.199.82:5000/api/posts"
 const API_LINK = "https://kosht-api.herokuapp.com/api/posts"
-const READMORE_LINK = 'https://kosht-api.herokuapp.com/api/posts/readmore'
+// const READMORE_LINK = 'https://kosht-api.herokuapp.com/api/posts/readmore'
 
 const useStyles = makeStyles(theme => ({
   main: {

@@ -9,6 +9,8 @@ import Copyright from '../src/Copyright';
 import axios from "axios";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Image from 'next/image';
 
 const About = ({users, posts, contacts}) => {
   const { t } = useTranslation("footer")
@@ -27,9 +29,12 @@ const About = ({users, posts, contacts}) => {
         <p>{t("description")}</p>
         
         {contacts.data.map(item => (
-          <div key={item._id} style={{ padding: 20, margin: '10px 0', border: '1px solid red', borderRadius: 5 }}>
+          <div key={item._id} style={{ padding: 20, margin: '10px 0', border: '1px solid red', borderRadius: 5, textAlign: 'center' }}>
             <h3>{router.pathname.includes('en') ? item.title_en : item.title_ua}</h3>
             <a href={item.link} target="_blank">{item.link}</a>
+            <div style={{ textAlign: 'center', marginTop: 20 }}>
+              <Image src={`http://193.46.199.82:5000/${item.imgUrl}`} height="20px" width="20px" />
+            </div>
           </div>
         ))}
 
@@ -60,12 +65,17 @@ export default About;
 export async function getStaticProps(context) {
   const fetchedUsers = await axios.get('https://jsonplaceholder.typicode.com/users')
   const fetchedPosts = await axios.get('https://jsonplaceholder.typicode.com/posts')  
-  const fetchedContacts = await axios.get('https://kosht-api.herokuapp.com/api/contacts')
+  const fetchedContacts = await axios.get('http://193.46.199.82:5000/api/contacts')
   const contacts = fetchedContacts.data
   const users = fetchedUsers.data
   const posts = fetchedPosts.data
 
   return {
-    props: {users, posts, contacts}, // will be passed to the page component as props
+    props: {
+      users, 
+      posts, 
+      contacts, 
+      ...await serverSideTranslations(context.locale, ["common"])
+    }
   }
 }

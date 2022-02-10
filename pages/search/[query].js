@@ -134,10 +134,9 @@ export default function Query({query, posts}) {
 
 export async function getServerSideProps(context) {
   const query = context.params.query
-  const BASE_API_PATH = "http://193.46.199.82:5000"
-  // const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
-  const API_LINK =`${BASE_API_PATH}/api/search`
-  const postsList = await axios.get(`${API_LINK}/${encodeURI(query)}`)
+  // const API_PATH = "http://193.46.199.82:5000/api/search"
+  const API_PATH = "https://kosht-api.herokuapp.com/api/search"
+  const postsList = await axios.get(`${API_PATH}/${encodeURI(query)}`)
   const posts = postsList.data.data
 
   return { 
