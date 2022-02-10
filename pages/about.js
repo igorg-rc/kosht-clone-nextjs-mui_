@@ -46,7 +46,7 @@ const About = ({users, posts, contacts}) => {
         ))}
 
         {posts.map(item => (
-          <div key={item.title} style={{ padding: 20, margin: '10px 0', border: '1px solid red', borderRadius: 5 }}>
+          <div key={item.title} style={{ padding: 20, margin: '10px 0', border: '1px solid green', borderRadius: 5 }}>
             <h3>{item.title}</h3>
             <Typography component="p">{item.body}</Typography>
           </div>

@@ -37,8 +37,8 @@ const MyApp = props => {
     }
   }, [router])
 
-  return (
-    <CacheProvider value={emotionCache}>
+  return <>
+    {/* <CacheProvider value={emotionCache}> */}
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
@@ -53,8 +53,8 @@ const MyApp = props => {
           </div>
         </Layout>
         </ThemeProvider>
-    </CacheProvider>
-  );
+    {/* </CacheProvider> */}
+  </>
 }
 
 export default appWithTranslation(MyApp)
