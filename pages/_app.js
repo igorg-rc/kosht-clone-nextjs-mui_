@@ -52,7 +52,7 @@ const MyApp = props => {
             </SimpleReactLightbox>
           </div>
         </Layout>
-        </ThemeProvider>
+      </ThemeProvider>
     {/* </CacheProvider> */}
   </>
 }

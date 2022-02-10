@@ -13,8 +13,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 // import { PostGeneralView } from "../../components/Post/Post"
 import { useTranslation } from "next-i18next"
 
-// const API_LINK = "http://193.46.199.82:5000/api"
-const API_LINK = "https://kosht-api.herokuapp.com/api"
+const API_LINK = "http://193.46.199.82:5000/api"
+// const API_LINK = "https://kosht-api.herokuapp.com/api"
 
 const useStyles = makeStyles(theme => ({
   main: {
