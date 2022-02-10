@@ -34,7 +34,7 @@ const About = ({users, posts, contacts}) => {
             <a href={item.link} target="_blank">{item.link}</a>
             <div style={{ textAlign: 'center', marginTop: 20 }}>
               <Image 
-                src={`https://193.46.199.82:5000/${item.imgUrl}`} 
+                src={`http://193.46.199.82:5000/${item.imgUrl}`} 
                 height="20px" 
                 width="20px" 
               />
