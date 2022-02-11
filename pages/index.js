@@ -95,7 +95,10 @@ const Index = ({posts, banners}) => {
     </Head>
     {banners?.map(i => (
       <div key={i._id} className='banner-img-holder'>
-        <img 
+        <Image 
+          layout='responsive'
+          width={100}
+          height={50}
           src={`http://193.46.199.82:5000/${i.imgUrl}`} 
           className='banner-img'
           alt={i.title}
