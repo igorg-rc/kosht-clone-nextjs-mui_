@@ -99,7 +99,7 @@ const Index = ({posts, banners}) => {
           layout='responsive'
           width={100}
           height={50}
-          src={`http://193.46.199.82:5000/${i.imgUrl}`} 
+          src={`http://igt-webdev.com:5000/${i.imgUrl}`} 
           className='banner-img'
           alt={i.title}
         />
@@ -163,7 +163,7 @@ export async function getServerSideProps({ locale }) {
   const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
   const fetchedPosts = await axios.get(`${BASE_API_PATH}/posts`)  
   const posts = fetchedPosts.data
-  const bannersRes = await axios.get(`http://193.46.199.82:5000/api/banners`)
+  const bannersRes = await axios.get(`http://igt-webdev.com:5000/api/banners`)
   const banners = bannersRes.data.data
   const fetchedMainNews = await axios.get(`${BASE_API_PATH}/lists/slug/main-news`)
   const mainNews = fetchedMainNews.data

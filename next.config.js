@@ -6,7 +6,8 @@ module.exports = {
     domains: [
       "images.unsplash.com", 
       "193.46.199.82", 
-      "igt-webdev.net"
+      "igt-webdev.site",
+      "igt-webdev.com",
     ]
   },
   pageExtensions: ['mdx', 'jsx', 'js', 'ts', 'tsx'],
