@@ -48,3 +48,12 @@ body {
 .content-row:last-child  {
   border-bottom: none !important;
 }
+
+.banner-img-holder {
+  border-radius: 20% !important;
+}
+
+.banner-img {
+  max-width: 100% !important;
+  border-radius: 8px !important;
+}

@@ -15,6 +15,7 @@ import moment from 'moment'
 import 'moment/locale/en-gb'
 import 'moment/locale/uk'
 import Head from 'next/head';
+import Image from 'next/image';
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -71,18 +72,10 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const loadData = async locale => {
-  const response = await fetch("/api/hello", { headers: { "Accept-Language": locale } })
-  const data = response.json()
-  return data 
-}
 
 
-const Index = ({posts, mainNews}) => {
-  const { locale } = useRouter()
+const Index = ({posts, banners}) => {
   const router = useRouter()
-  const { slug } = router.query
-  const {data} = useSWR([locale, "hello"], loadData)
   const styles = useStyles()
   const { t } = useTranslation("common")
   const [showMore, setShowMore] = useState(true)
@@ -92,7 +85,6 @@ const Index = ({posts, mainNews}) => {
     return <div>Loading...</div>
   }
 
-  console.log('Quantity of posts', posts.data.length)
 
   return (
     <>
@@ -101,6 +93,15 @@ const Index = ({posts, mainNews}) => {
       <meta name="description" content={t("head.indexDescription")} />
       <meta name="keywords" content={t("head.indexKeywords")} />
     </Head>
+    {banners?.map(i => (
+      <div key={i._id} className='banner-img-holder'>
+        <img 
+          src={`http://193.46.199.82:5000/${i.imgUrl}`} 
+          className='banner-img'
+          alt={i.title}
+        />
+      </div>
+    ))}
     {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? mainNews.posts.slice(0, 5) : mainNews.posts.slice(0, mainNews.length)}
@@ -109,6 +110,7 @@ const Index = ({posts, mainNews}) => {
       toggleExpanded={() => setExpanded(!expanded)}
       toggleShowMore={() => setShowMore(!showMore)} 
     /> */}
+
 
     {posts ? posts.data.map(i => <Item style={{ border: '1px sold #000' }} key={i._id}>
       <div style={{ border: '1px sold #000', padding: '20px 0' }}>
@@ -158,10 +160,15 @@ export async function getServerSideProps({ locale }) {
   const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
   const fetchedPosts = await axios.get(`${BASE_API_PATH}/posts`)  
   const posts = fetchedPosts.data
+  const bannersRes = await axios.get(`http://193.46.199.82:5000/api/banners`)
+  const banners = bannersRes.data.data
   const fetchedMainNews = await axios.get(`${BASE_API_PATH}/lists/slug/main-news`)
   const mainNews = fetchedMainNews.data
 
   return {
-    props: {posts, ...await serverSideTranslations(locale, ['common']) } 
+    props: {
+      posts, 
+      banners,
+      ...await serverSideTranslations(locale, ['common']) } 
   }
 }
