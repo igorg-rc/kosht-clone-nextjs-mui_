@@ -34,7 +34,7 @@ const About = ({users, posts, contacts}) => {
             <a href={item.link} target="_blank">{item.link}</a>
             <div style={{ textAlign: 'center', marginTop: 20 }}>
               <Image 
-                src={`http://igt-webdev.com:5000/${item.imgUrl}`} 
+                src={`http://193.46.199.82:5000/${item.imgUrl}`} 
                 height="20px" 
                 width="20px" 
               />
@@ -69,7 +69,7 @@ export default About;
 export async function getStaticProps(context) {
   const fetchedUsers = await axios.get('https://jsonplaceholder.typicode.com/users')
   const fetchedPosts = await axios.get('https://jsonplaceholder.typicode.com/posts')  
-  const fetchedContacts = await axios.get('http://igt-webdev.com:5000/api/contacts')
+  const fetchedContacts = await axios.get('http://193.46.199.82:5000/api/contacts')
   const contacts = fetchedContacts.data
   const users = fetchedUsers.data
   const posts = fetchedPosts.data
