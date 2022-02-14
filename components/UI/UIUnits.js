@@ -214,8 +214,8 @@ export const LeftMenuList = (props) => {
                 #
               </span>
             )}
-            {item === "category" && (i.imgUrl_main && i.imgUrl_hover) ? <span style={{ verticalAlign: "middle", marginRight: 5  }}>
-                <Image src={`http://193.46.199.82:5000/${i.imgUrl_main}`} height="20px" width="20px" />
+            {(item === "category" || item === "contact") && (i.imgUrl_main && i.imgUrl_hover) ? <span style={{ verticalAlign: "middle", marginRight: 5  }}>
+                <Image src={`http://193.46.199.82:5000/${i.imgUrl_main}`} height="20px" width="20px" style={{ marginRight: 5 }} />
               </span> : null
             }
             {item === "category" && (!i.imgUrl_hover && !i.imgUrl_main) && (
