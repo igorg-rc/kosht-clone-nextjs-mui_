@@ -93,7 +93,7 @@ const Index = ({posts, banners}) => {
       <meta name="description" content={t("head.indexDescription")} />
       <meta name="keywords" content={t("head.indexKeywords")} />
     </Head>
-    {/* {banners?.map(i => (
+    {banners?.map(i => (
       <div key={i._id} className='banner-img-holder'>
         <Image 
           layout='responsive'
@@ -104,7 +104,7 @@ const Index = ({posts, banners}) => {
           alt={i.title}
         />
       </div>
-    ))} */}
+    ))}
     {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? mainNews.posts.slice(0, 5) : mainNews.posts.slice(0, mainNews.length)}
@@ -159,8 +159,8 @@ const Index = ({posts, banners}) => {
 export default Index
 
 export async function getServerSideProps({ locale }) {
-  // const BASE_API_PATH = "http://193.46.199.82:5000/api"
-  const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
+  const BASE_API_PATH = "http://193.46.199.82:5000/api"
+  // const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
   const fetchedPosts = await axios.get(`${BASE_API_PATH}/posts`)  
   const posts = fetchedPosts.data
   const bannersRes = await axios.get(`http://193.46.199.82:5000/api/banners`)
