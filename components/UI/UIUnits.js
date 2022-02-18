@@ -5,6 +5,8 @@ import { makeStyles, useTheme } from "@mui/styles";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
+const API_LINK = 'http://api.igt-webdev.site'
+
 const leftMenuStyles = makeStyles((theme) => ({
   listWrapper: {
   },
@@ -175,7 +177,7 @@ export const LeftMenuList = (props) => {
         {items.map(i => (
           <ListItemText key={i._id} className={styles.listItem}>
             {(i.imgUrl) ? <Image 
-              src={`http://193.46.199.82:5000/${i.imgUrl}`}
+              src={`${API_LINK}/${i.imgUrl}`}
               width="15px" 
               height="15px" 
               style={{ verticalAlign: "middle", marginRight: 5 }} 
@@ -215,7 +217,7 @@ export const LeftMenuList = (props) => {
               </span>
             )}
             {(item === "category" || item === "contact") && (i.imgUrl_main && i.imgUrl_hover) ? <span style={{ verticalAlign: "middle", marginRight: 5  }}>
-                <Image src={`http://193.46.199.82:5000/${i.imgUrl_main}`} height="20px" width="20px" style={{ marginRight: 5 }} />
+                <Image src={`${API_LINK}/${i.imgUrl_main}`} height="20px" width="20px" style={{ marginRight: 5 }} />
               </span> : null
             }
             {item === "category" && (!i.imgUrl_hover && !i.imgUrl_main) && (

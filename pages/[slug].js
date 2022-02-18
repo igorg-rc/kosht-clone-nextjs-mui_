@@ -15,7 +15,7 @@ import 'moment/locale/uk'
 import { useState } from "react"
 import { useTranslation } from "next-i18next"
 
-const API_LINK = "http://193.46.199.82:5000/api/posts"
+const API_LINK = "http://api.igt-webdev.site"
 // const API_LINK = "https://kosht-api.herokuapp.com/api/posts"
 // const READMORE_LINK = 'https://kosht-api.herokuapp.com/api/posts/readmore'
 
@@ -120,10 +120,14 @@ export default function Post({ post, fetchedPosts }) {
       </span>   
     </Typography>  
       <SectionTitle title={post.title} />
+      <div className="srl-wrapper">
+      <SRLWrapper>
         <div 
           className="post-content post-content-detail" 
           dangerouslySetInnerHTML={{__html: post.body}}
         >
+        </div>
+        </SRLWrapper>
         </div>
       <SRLWrapper>
         {post.imgUrl && <Image src={post.imgUrl} srl_gallery_image="true" maxWidth="100%" />}

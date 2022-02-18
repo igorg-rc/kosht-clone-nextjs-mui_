@@ -80,11 +80,11 @@ const Index = ({posts, banners}) => {
   const { t } = useTranslation("common")
   const [showMore, setShowMore] = useState(true)
   const [expanded, setExpanded] = useState(true)
+  const API_LINK = 'http://api.igt-webdev.site'
 
   if (router.isFallback) {
     return <div>Loading...</div>
   }
-
 
   return (
     <>
@@ -93,18 +93,18 @@ const Index = ({posts, banners}) => {
       <meta name="description" content={t("head.indexDescription")} />
       <meta name="keywords" content={t("head.indexKeywords")} />
     </Head>
-    {banners?.map(i => (
+    {banners ? banners.data.map(i => (
       <div key={i._id} className='banner-img-holder'>
         <Image 
           layout='responsive'
           width={100}
           height={50}
-          src={`http://193.46.199.82:5000/${i.imgUrl}`} 
+          src={`${API_LINK}/${i.imgUrl}`} 
           className='banner-img'
           alt={i.title}
         />
       </div>
-    ))}
+    )) : null}
     {/* <PostSeparateListIndex
       label={router.locale === "uk" ? "Читайте також" : "Read more"}
       items={showMore ? mainNews.posts.slice(0, 5) : mainNews.posts.slice(0, mainNews.length)}
@@ -150,7 +150,7 @@ const Index = ({posts, banners}) => {
       </Typography>
       {i.imgUrl && <Image src={i.imgUrl} />}
       </div>
-    </Item>) : "postList.noPosts"} 
+    </Item>) : null} 
     </>
   );
 }
@@ -159,14 +159,14 @@ const Index = ({posts, banners}) => {
 export default Index
 
 export async function getServerSideProps({ locale }) {
-  const BASE_API_PATH = "http://193.46.199.82:5000/api"
+  const BASE_API_PATH = "http://api.igt-webdev.site"
   // const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
   const fetchedPosts = await axios.get(`${BASE_API_PATH}/posts`)  
   const posts = fetchedPosts.data
-  const bannersRes = await axios.get(`http://193.46.199.82:5000/api/banners`)
-  const banners = bannersRes.data.data
-  const fetchedMainNews = await axios.get(`${BASE_API_PATH}/lists/slug/main-news`)
-  const mainNews = fetchedMainNews.data
+  const bannersRes = await axios.get(`${BASE_API_PATH}/banners`)
+  const banners = bannersRes.data
+  // const fetchedMainNews = await axios.get(`${BASE_API_PATH}/lists/slug/main-news`)
+  // const mainNews = fetchedMainNews.data
 
   return {
     props: {

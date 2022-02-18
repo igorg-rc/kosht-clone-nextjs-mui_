@@ -12,7 +12,7 @@ export default function LeftMenu() {
   const { t } = useTranslation('common')
   const fetcher = url => axios.get(url).then(res => res.data)
   // const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
-  const BASE_API_PATH = "http://193.46.199.82:5000/api"
+  const BASE_API_PATH = "http://api.igt-webdev.site"
 
   const {data: categories, error: categoriesError} = useSWR(`${BASE_API_PATH}/categories`, fetcher)
   const {data: contacts, error: contactsError}     = useSWR(`${BASE_API_PATH}/contacts`, fetcher)

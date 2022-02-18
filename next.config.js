@@ -6,7 +6,7 @@ module.exports = {
     domains: [
       "images.unsplash.com", 
       "193.46.199.82", 
-      "igt-webdev.site",
+      "api.igt-webdev.site",
       "igt-webdev.com",
     ]
   },

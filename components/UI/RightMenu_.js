@@ -173,9 +173,9 @@ export const RightMenu = props => {
   const router = useRouter()
   const styles = useStyles()
   const { t } = useTranslation('common')
-  const BASE_API_PATH = "http://193.46.199.82:5000/api"
+  // const BASE_API_PATH = "http://193.46.199.82:5000/api"
   // const BASE_API_PATH = "https://kosht-api.herokuapp.com/api"
-  // const BASE_API_PATH = "http://igt-webdev.net:5000/api"
+  const BASE_API_PATH = "http://api.igt-webdev.site"
   const EDITOR_CHOICE_URL = `${BASE_API_PATH}/lists/slug/editor-choice`
   const ALL_POSTS_URL = `${BASE_API_PATH}/posts`
   const fetcher = url => axios.get(url).then(res => res.data).catch(err => console.log(err))

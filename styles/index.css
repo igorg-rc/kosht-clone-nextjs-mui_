@@ -58,3 +58,11 @@ body {
   max-width: 100% !important;
   border-radius: 8px !important;
 }
+
+.lightbox-wrapper {
+  max-width: 100% !important;
+}
+
+.srl-wrapper:hover {
+  cursor: pointer;
+}
