@@ -15,7 +15,6 @@ import 'moment/locale/uk'
 import { useState } from "react"
 import { useTranslation } from "next-i18next"
 
-const API_LINK = "http://api.igt-webdev.site"
 // const API_LINK = "https://kosht-api.herokuapp.com/api/posts"
 // const READMORE_LINK = 'https://kosht-api.herokuapp.com/api/posts/readmore'
 
@@ -77,18 +76,18 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-export default function Post({ post, fetchedPosts }) {
+export default function Post({ post }) {
   const { t } = useTranslation("common")
   const router = useRouter()
   const styles = useStyles()
   const [showMore, setShowMore] = useState(true)
   const [expanded, setExpanded] = useState(true)
+  const API_LINK = "http://api.igt-webdev.site"
 
   const tags = post.tags?.map(tag => (
     router.locale === "ua" ? tag.title_ua : tag.title_en 
   )).toString()
 
-  console.log(tags)
 
   return <>
     <Head>
@@ -130,7 +129,7 @@ export default function Post({ post, fetchedPosts }) {
         </SRLWrapper>
         </div>
       <SRLWrapper>
-        {post.imgUrl && <Image src={post.imgUrl} srl_gallery_image="true" maxWidth="100%" />}
+        {post.imgUrl && <Image src={`${API_LINK}/${post.imgUrl}`} srl_gallery_image="true" maxWidth="100%" />}
       </SRLWrapper>
       </div>
     </Item>
@@ -148,7 +147,7 @@ export default function Post({ post, fetchedPosts }) {
 
 
 export async function getStaticPaths({locales}) {
-  const res = await axios.get(API_LINK)
+  const res = await axios.get('http://api.igt-webdev.site/posts')
   const posts = res.data
 
   const paths = posts.data.map(post => (
@@ -163,6 +162,7 @@ export async function getStaticPaths({locales}) {
 }
 
 export async function getStaticProps(context) {
+  const API_LINK = "http://api.igt-webdev.site/posts"
   const resPost = await axios.get(`${API_LINK}/slug/${context.params.slug}`)
   const post = resPost.data
   // const resItems = await axios.get(`${READMORE_LINK}/${context.params.slug}`)

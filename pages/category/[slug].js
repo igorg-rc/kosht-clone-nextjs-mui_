@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 // const API_LINK = "https://kosht-api.herokuapp.com/api"
-const API_LINK = "http://193.46.199.82:5000/api"
+const API_LINK = "http://api.igt-webdev.site"
 
 export default function PostsByCategories({category, posts}) {
   const theme = useTheme()

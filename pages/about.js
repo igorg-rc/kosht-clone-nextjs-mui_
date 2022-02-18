@@ -15,7 +15,6 @@ import Image from 'next/image';
 const About = ({users, posts, contacts}) => {
   const { t } = useTranslation("footer")
   const router = useRouter()
-  const { pathname, locale } = router
 
   return (
     <Container maxWidth="sm">
@@ -30,7 +29,7 @@ const About = ({users, posts, contacts}) => {
         
         {contacts.data.map(item => (
           <div key={item._id} style={{ padding: 20, margin: '10px 0', border: '1px solid red', borderRadius: 5, textAlign: 'center' }}>
-            <h3>{router.pathname.includes('en') ? item.title_en : item.title_ua}</h3>
+            <h3>{router.locale === "en" ? item.title_en : item.title_ua}</h3>
             <a href={item.link} target="_blank">{item.link}</a>
             <div style={{ textAlign: 'center', marginTop: 20 }}>
               <Image 
